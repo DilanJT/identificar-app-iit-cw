@@ -16,7 +16,7 @@ public class IdentifyCarModelActivity extends AppCompatActivity {
         Spinner dropdown = (Spinner) findViewById(R.id.spinner);
         String[] list = {"Option 1", "Option 2", "Option 3"};
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, R.layout.activity_identify_car_model, list);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, list);
         dropdown.setAdapter(arrayAdapter);
 
     }
