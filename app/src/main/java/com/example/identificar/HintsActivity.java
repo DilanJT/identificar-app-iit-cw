@@ -63,7 +63,7 @@ public class HintsActivity extends AppCompatActivity {
         String trimmedString = generatedCarMake.replaceAll("\\s+", "");
 
         for(int i = 0; i < dashNumber; i++) {
-            dashes += "- ";
+            dashes += "-";
         }
 
         dashedText.setText(dashes);
@@ -72,14 +72,25 @@ public class HintsActivity extends AppCompatActivity {
 
     public void onSubmitClicked(View view) {
         String trimmedString = generatedCarMake.replaceAll("\\s+", "");
-        char[] chars = trimmedString.toCharArray();
+        char[] generatedCarMakedChars = trimmedString.toCharArray();
         String gTextChar = guessText.getText().toString();
+        char[] dashesChar = dashedText.getText().toString().toCharArray();
 
 
         for(int i = 0; i < trimmedString.length(); i++) {
-            if(gTextChar.equalsIgnoreCase(Character.toString(chars[0]))){
-
+            if(gTextChar.equalsIgnoreCase(Character.toString(generatedCarMakedChars[i]))){
+                //have checked weather we have correctly guessed it earlier
+                if(!Character.toString(dashesChar[i]).equalsIgnoreCase(gTextChar)){
+                    dashesChar[i] = gTextChar.charAt(0); // here 0 is because it is the only string guess
+                }
             }
         }
+        String stringDashes = new String(dashesChar);
+        dashedText.setText(stringDashes);
+        guessText.setText(null);
+
+        //TODO: implement the correct wrong functionality
+        //TODO: implement the number of guesses left when he/she guess any wrong char
+        //TODO: implement the button text change functionality
     }
 }
