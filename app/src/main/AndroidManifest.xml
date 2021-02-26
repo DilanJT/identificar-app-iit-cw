@@ -12,7 +12,9 @@
         <activity android:name=".AdvancedLevelActivity"></activity>
         <activity android:name=".IdentifyCarImageActivity" />
         <activity android:name=".HintsActivity" />
-        <activity android:name=".IdentifyCarModelActivity" />
+        <activity
+            android:name=".IdentifyCarModelActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">

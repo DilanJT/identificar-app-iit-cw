@@ -2,6 +2,7 @@ package com.example.identificar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -25,6 +27,9 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
     int randomInt;
     String[] carStringList;
     int[] carIds;
+
+    TextView correctWrong;
+    TextView correctAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,8 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
 
         carPic = (ImageView) findViewById(R.id.imgModelActivity);
         btnSubmit = (Button) findViewById(R.id.btnModelActivity);
+        correctWrong = (TextView) findViewById(R.id.resultTextViewModel);
+        correctAnswer = (TextView) findViewById(R.id.correctAnswerModel);
 
         /*
         SETUPS
@@ -92,13 +99,26 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
         String btnText = btnSubmit.getText().toString();
 
         if(btnText.equalsIgnoreCase("identify")){
+            // logic when the user clicked on the identified button and its text os changed to next
             if (itemSelected.equalsIgnoreCase(carStringList[randomInt])){
-                Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(this, "Wrong! Correct answer is " + carStringList[randomInt], Toast.LENGTH_SHORT).show();
-            }
-        }else if(btnText.equalsIgnoreCase("next")){
+                correctWrong.setText(R.string.correct);
+                correctWrong.setTextColor(getResources().getColor(R.color.identificarGreen));
 
+            }else{
+                correctWrong.setText(R.string.wrong);
+                correctWrong.setTextColor(getResources().getColor(R.color.identificarRed));
+                correctAnswer.setText(carStringList[randomInt]);
+                correctAnswer.setTextColor(getResources().getColor(R.color.identificarYellow));
+            }
+            btnSubmit.setText(R.string.btn_next);
+        }else if(btnText.equalsIgnoreCase("next")){
+            //resetting the game state
+            correctWrong.setText(null);
+            correctAnswer.setText(null);
+            Random random = new Random();
+            randomInt = random.nextInt(30);
+            carPic.setImageResource(carIds[randomInt]);
+            btnSubmit.setText(R.string.btn_identify);
         }
 
     }

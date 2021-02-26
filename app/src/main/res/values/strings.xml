@@ -3,9 +3,11 @@
     <string name="btn_submit">Submit</string>
     <string name="btn_next">Next</string>
     <string name="btn_identify">Identify</string>
+    <string name="correct">CORRECT!</string>
+    <string name="wrong">WRONG!</string>
     <string-array name="cars_array">
         <item>Acura</item>
-        <item>Aplha Romeo</item>
+        <item>Alpha Romeo</item>
         <item>Audi</item>
         <item>Bentley</item>
         <item>BMW</item>
