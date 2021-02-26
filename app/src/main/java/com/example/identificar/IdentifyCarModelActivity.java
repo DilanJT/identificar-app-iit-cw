@@ -2,7 +2,6 @@ package com.example.identificar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.identificar.models.Cars;
 
@@ -29,7 +27,7 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
     int randomInt;
 //    String[] carStringList;
 //    int[] carIds;
-    Cars cars = Cars.getInstance();
+    Cars cars;
 
     TextView correctWrong;
     TextView correctAnswer;
@@ -68,8 +66,9 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
 
         carPic = (ImageView) findViewById(R.id.imgModelActivity);
         btnSubmit = (Button) findViewById(R.id.btnModelActivity);
-        correctWrong = (TextView) findViewById(R.id.resultTextViewModel);
-        correctAnswer = (TextView) findViewById(R.id.correctAnswerModel);
+        correctWrong = (TextView) findViewById(R.id.correctGuessTextViewModel);
+        correctAnswer = (TextView) findViewById(R.id.correctAnswerTextViewModel);
+        cars = Cars.getInstance();
 
         /*
         SETUPS

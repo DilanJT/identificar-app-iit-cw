@@ -6,11 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".HintsActivity">
 
+    <TextView
+        android:id="@+id/correctTextViewHints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:outlineAmbientShadowColor="#FFFFFF"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/imgHintsView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47" />
+
+    <TextView
+        android:id="@+id/resultTextViewHints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:outlineAmbientShadowColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/imgHintsView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.472" />
+
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgHintsView"
         android:layout_width="288dp"
         android:layout_height="297dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="112dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,38 +47,43 @@
         app:srcCompat="@drawable/ic_car" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/correctGuessTextView"
         android:layout_width="wrap_content"
         android:layout_height="54dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="24dp"
         android:text="- - - - - - - - - "
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imgHintsView" />
 
     <Button
-        android:id="@+id/btnHintsActivity"
+        android:id="@+id/btnHintsSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="NEXT"
+        android:layout_marginTop="24dp"
+        android:text="@string/btn_submit"
+        android:onClick="onSubmitClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextGuessHints" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="111dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="44dp"
+        android:id="@+id/editTextGuessHints"
+        android:layout_width="90dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="guess"
         android:inputType="textPersonName"
-        android:text="guess"
+        android:maxLength="1"
         android:textSize="30sp"
+        android:imeOptions="actionDone"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/correctGuessTextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

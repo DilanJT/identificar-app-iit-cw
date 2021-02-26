@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <TextView
-        android:id="@+id/resultTextViewModel"
+        android:id="@+id/correctGuessTextViewModel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.47" />
 
     <TextView
-        android:id="@+id/correctAnswerModel"
+        android:id="@+id/correctAnswerTextViewModel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="60dp"
