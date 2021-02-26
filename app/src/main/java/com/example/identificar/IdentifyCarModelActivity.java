@@ -14,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.identificar.models.Cars;
+
 import java.util.Random;
 
 
@@ -25,8 +27,9 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
     Spinner dropdown;
     String itemSelected;
     int randomInt;
-    String[] carStringList;
-    int[] carIds;
+//    String[] carStringList;
+//    int[] carIds;
+    Cars cars = Cars.getInstance();
 
     TextView correctWrong;
     TextView correctAnswer;
@@ -41,18 +44,18 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
         */
 
         dropdown = (Spinner) findViewById(R.id.spinner);
-        carStringList = new String[]{"Acura", "Alpha Romeo", "Audi", "Bentley", "BMW", "Buick",
-        "Cadilac", "Chevrolet", "Dodge", "Fiat", "Genesis", "GMC", "Hundai", "Jaguar", "Jeep",
-        "Land Rover", "Lexus", "Mercedes", "Mercury", "Mini", "Mitsubishi", "Nissan", "Pontiac",
-        "Porche", "Rolls Royce", "Subaru", "Suzuki", "Tesla", "Toyota", "Volvo"};
-
-        carIds = new int[]{R.drawable.acura, R.drawable.alpha_romeo, R.drawable.audi, R.drawable.bentley,
-        R.drawable.bmw, R.drawable.buick, R.drawable.cadillac, R.drawable.chevrolet, R.drawable.dodge,
-        R.drawable.fiat, R.drawable.genesis, R.drawable.gmc, R.drawable.hundai, R.drawable.jaguar,
-        R.drawable.jeep, R.drawable.land_rover, R.drawable.lexus, R.drawable.mercedes, R.drawable.mercury,
-        R.drawable.mini, R.drawable.mitsubishi, R.drawable.nissan, R.drawable.pontiac, R.drawable.porche,
-        R.drawable.rolls_royce, R.drawable.subaru, R.drawable.suzuki, R.drawable.tesla, R.drawable.toyota,
-        R.drawable.volvo};
+//        carStringList = new String[]{"Acura", "Alpha Romeo", "Audi", "Bentley", "BMW", "Buick",
+//        "Cadilac", "Chevrolet", "Dodge", "Fiat", "Genesis", "GMC", "Hundai", "Jaguar", "Jeep",
+//        "Land Rover", "Lexus", "Mercedes", "Mercury", "Mini", "Mitsubishi", "Nissan", "Pontiac",
+//        "Porche", "Rolls Royce", "Subaru", "Suzuki", "Tesla", "Toyota", "Volvo"};
+//
+//        carIds = new int[]{R.drawable.acura, R.drawable.alpha_romeo, R.drawable.audi, R.drawable.bentley,
+//        R.drawable.bmw, R.drawable.buick, R.drawable.cadillac, R.drawable.chevrolet, R.drawable.dodge,
+//        R.drawable.fiat, R.drawable.genesis, R.drawable.gmc, R.drawable.hundai, R.drawable.jaguar,
+//        R.drawable.jeep, R.drawable.land_rover, R.drawable.lexus, R.drawable.mercedes, R.drawable.mercury,
+//        R.drawable.mini, R.drawable.mitsubishi, R.drawable.nissan, R.drawable.pontiac, R.drawable.porche,
+//        R.drawable.rolls_royce, R.drawable.subaru, R.drawable.suzuki, R.drawable.tesla, R.drawable.toyota,
+//        R.drawable.volvo};
 
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this,
                 R.array.cars_array, android.R.layout.simple_spinner_item);
@@ -79,7 +82,8 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
         randomInt = random.nextInt(30);
 
         // setting a random image
-        carPic.setImageResource(carIds[randomInt]);
+//        carPic.setImageResource(carIds[randomInt]);
+        carPic.setImageResource(cars.getCarIds()[randomInt]);
 
     }
 
@@ -100,14 +104,14 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
 
         if(btnText.equalsIgnoreCase("identify")){
             // logic when the user clicked on the identified button and its text os changed to next
-            if (itemSelected.equalsIgnoreCase(carStringList[randomInt])){
+            if (itemSelected.equalsIgnoreCase(cars.getMakes()[randomInt])){
                 correctWrong.setText(R.string.correct);
                 correctWrong.setTextColor(getResources().getColor(R.color.identificarGreen));
 
             }else{
                 correctWrong.setText(R.string.wrong);
                 correctWrong.setTextColor(getResources().getColor(R.color.identificarRed));
-                correctAnswer.setText(carStringList[randomInt]);
+                correctAnswer.setText(cars.getMakes()[randomInt]);
                 correctAnswer.setTextColor(getResources().getColor(R.color.identificarYellow));
             }
             btnSubmit.setText(R.string.btn_next);
@@ -117,7 +121,7 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
             correctAnswer.setText(null);
             Random random = new Random();
             randomInt = random.nextInt(30);
-            carPic.setImageResource(carIds[randomInt]);
+            carPic.setImageResource(cars.getCarIds()[randomInt]);
             btnSubmit.setText(R.string.btn_identify);
         }
 
