@@ -25,7 +25,7 @@ public class HintsActivity extends AppCompatActivity {
     String generatedCarMake;
     Cars cars;
     final int MAX_GUESSES = 3;
-    int currentIncorrectGuess = 3;
+    int currentIncorrectGuess = 4;
     boolean found = false;
     boolean present = false;
 
@@ -78,6 +78,8 @@ public class HintsActivity extends AppCompatActivity {
 
     public void onSubmitClicked(View view) {
 
+        present = false;
+
         String trimmedString = generatedCarMake.replaceAll("\\s+", "");
         char[] generatedCarMakedChars = trimmedString.toCharArray();
         String gTextChar = guessText.getText().toString();
@@ -85,12 +87,7 @@ public class HintsActivity extends AppCompatActivity {
 
 
         if(btnSubmit.getText().toString().equalsIgnoreCase("Submit")) {
-                if(currentIncorrectGuess == 0) {
-                    correctAnswer.setText(generatedCarMake);
-                    correctAnswer.setTextColor(getResources().getColor(R.color.identificarYellow));
-                    //btnSubmit.setText(R.string.btn_next);
-                    return;
-                }
+
                 Log.i("Check :", Character.toString(gTextChar.charAt(0)));
                 for (int i = 0; i < trimmedString.length(); i++) {
                     if (gTextChar.equalsIgnoreCase(Character.toString(generatedCarMakedChars[i]))) {
@@ -102,18 +99,21 @@ public class HintsActivity extends AppCompatActivity {
                     }
                 }
 
+            if(!present){
+                currentIncorrectGuess --;
+                correctAnswer.setTextColor(getResources().getColor(R.color.identificarRed));
+                correctAnswer.setText((currentIncorrectGuess - 1) + " wrong attepts left");
+            }
+            if(currentIncorrectGuess == 0) {
+                guessText.setText(null);
+                correctWrong.setText(R.string.wrong);
+                correctWrong.setTextColor(getResources().getColor(R.color.identificarRed));
+                correctAnswer.setText(generatedCarMake);
+                correctAnswer.setTextColor(getResources().getColor(R.color.identificarYellow));
+                btnSubmit.setText(R.string.btn_next);
+                return;
+            }
 
-//                if(present) {
-//                    return;
-//                }else{
-//                    //if present == false
-//                    currentIncorrectGuess --;
-//                    correctWrong.setText(R.string.wrong);
-//                    String guessLeftMessage = Integer.toString(currentIncorrectGuess) + " left";
-//                    correctAnswer.setText(guessLeftMessage);
-//                    correctWrong.setTextColor(getResources().getColor(R.color.identificarRed));
-//                    correctAnswer.setTextColor(getResources().getColor(R.color.identificarRed));
-//                }
 
             String stringDashes = new String(dashesChar);
             dashedText.setText(stringDashes);
@@ -124,11 +124,15 @@ public class HintsActivity extends AppCompatActivity {
                 found = true;
                 correctWrong.setText(R.string.correct);
                 correctWrong.setTextColor(getResources().getColor(R.color.identificarGreen));
+                correctAnswer.setText(null);
                 btnSubmit.setText(R.string.btn_next);
             }
 
             //System.out.println("No incorrect guess chances left.");
         }else if(btnSubmit.getText().toString().equalsIgnoreCase("Next")){
+            currentIncorrectGuess = 4;
+            correctAnswer.setText(null);
+            correctWrong.setText(null);
             Random random = new Random();
             randomInt = random.nextInt(30);
 

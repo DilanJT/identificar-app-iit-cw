@@ -11,7 +11,8 @@
         android:theme="@style/Theme.IDENTIFICAR">
         <activity android:name=".AdvancedLevelActivity"></activity>
         <activity android:name=".IdentifyCarImageActivity" />
-        <activity android:name=".HintsActivity" />
+        <activity android:name=".HintsActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".IdentifyCarModelActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
