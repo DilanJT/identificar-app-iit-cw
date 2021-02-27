@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IDENTIFICAR">
         <activity android:name=".AdvancedLevelActivity"></activity>
-        <activity android:name=".IdentifyCarImageActivity" />
+        <activity android:name=".IdentifyCarImageActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".HintsActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity

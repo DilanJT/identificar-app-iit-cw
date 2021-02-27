@@ -12,10 +12,10 @@ public class Cars {
     static Cars cars = new Cars();
 
     private Cars() {
-        make = new String[]{"Acura", "Alpha Romeo", "Audi", "Bentley", "BMW", "Buick",
+        make = new String[]{"Acura", "AlphaRomeo", "Audi", "Bentley", "BMW", "Buick",
                 "Cadilac", "Chevrolet", "Dodge", "Fiat", "Genesis", "GMC", "Hundai", "Jaguar", "Jeep",
-                "Land Rover", "Lexus", "Mercedes", "Mercury", "Mini", "Mitsubishi", "Nissan", "Pontiac",
-                "Porche", "Rolls Royce", "Subaru", "Suzuki", "Tesla", "Toyota", "Volvo"};
+                "LandRover", "Lexus", "Mercedes", "Mercury", "Mini", "Mitsubishi", "Nissan", "Pontiac",
+                "Porche", "RollsRoyce", "Subaru", "Suzuki", "Tesla", "Toyota", "Volvo"};
 
         id =  new int[]{R.drawable.acura, R.drawable.alpha_romeo, R.drawable.audi, R.drawable.bentley,
                 R.drawable.bmw, R.drawable.buick, R.drawable.cadillac, R.drawable.chevrolet, R.drawable.dodge,

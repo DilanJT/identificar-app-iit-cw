@@ -142,8 +142,7 @@ public class HintsActivity extends AppCompatActivity {
             btnSubmit.setText(R.string.btn_submit);
         }
 
-        //TODO: implement the correct wrong functionality
-        //TODO: implement the number of guesses left when he/she guess any wrong char
-        //TODO: implement the button text change functionality
+        //TODO: fix the submit button clicked in the null state
+        //TODO: fix the name with spaces
       }
 }

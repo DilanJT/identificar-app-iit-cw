@@ -5,13 +5,43 @@
     android:id="@+id/btnImageActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".IdentifyCarImageActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/correctGuessTextViewImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:outlineAmbientShadowColor="#FFFFFF"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/generatedTextForImageAct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47" />
+
+    <TextView
+        android:id="@+id/correctAnswerTextViewImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:outlineAmbientShadowColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/generatedTextForImageAct"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47" />
+
+    <TextView
+        android:id="@+id/generatedTextForImageAct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
         android:text="Mercedez"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,45 +50,49 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageOption1"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/generatedTextForImageAct"
         app:srcCompat="@drawable/ic_car" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageOption2"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/generatedTextForImageAct"
         app:srcCompat="@drawable/ic_car" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageOption3"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="220dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/generatedTextForImageAct"
         app:srcCompat="@drawable/ic_car" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnSubmitImageAct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="NEXT"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/imageOption3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

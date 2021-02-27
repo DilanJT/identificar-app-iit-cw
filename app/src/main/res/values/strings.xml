@@ -7,7 +7,7 @@
     <string name="wrong">WRONG!</string>
     <string-array name="cars_array">
         <item>Acura</item>
-        <item>Alpha Romeo</item>
+        <item>AlphaRomeo</item>
         <item>Audi</item>
         <item>Bentley</item>
         <item>BMW</item>
@@ -21,7 +21,7 @@
         <item>Hundai</item>
         <item>Jeep</item>
         <item>Jaguar</item>
-        <item>Land Rover</item>
+        <item>LandRover</item>
         <item>Lexus</item>
         <item>Mercedes</item>
         <item>Mercury</item>
@@ -30,7 +30,7 @@
         <item>Nissan</item>
         <item>Pontiac</item>
         <item>Porche</item>
-        <item>Rolls Royce</item>
+        <item>RollsRoyce</item>
         <item>Subaru</item>
         <item>Suzuki</item>
         <item>Tesla</item>
