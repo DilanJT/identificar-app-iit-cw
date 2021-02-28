@@ -9,7 +9,7 @@ public class Cars {
     private final String[] make;
     private final int[] id;
 
-    static Cars cars = new Cars();
+    final static Cars cars = new Cars();
 
     private Cars() {
         make = new String[]{"Acura", "AlphaRomeo", "Audi", "Bentley", "BMW", "Buick",

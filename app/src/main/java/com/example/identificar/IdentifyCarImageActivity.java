@@ -60,6 +60,9 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
     }
 
     public void generateRandomResources(){
+
+        //setting a random number to not to be corresponding with other images generated
+        //always generates three different random numbers
         Random random1 = new Random();
         randomInt1 = random1.nextInt(30);
         Random random2 = new Random();
@@ -73,6 +76,7 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
             randomInt3 = random3.nextInt(30);
         }
 
+        //setting the image view according to the random number generator
         imageView1.setImageResource(cars.getCarIds()[randomInt1]);
         imageView1.setTag(cars.getMakes()[randomInt1]); //setting a tag to save its make string value
         imageView2.setImageResource(cars.getCarIds()[randomInt2]);
@@ -80,9 +84,12 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
         imageView3.setImageResource(cars.getCarIds()[randomInt3]);
         imageView3.setTag(cars.getMakes()[randomInt3]);
 
+
         String[] carsMakes = {cars.getMakes()[randomInt1], cars.getMakes()[randomInt2],
             cars.getMakes()[randomInt3]};
 
+        //out of the random numbers generated a random car make is taken to predict.
+        //random car make out of the above carMakes string list is generated
         Random random4 = new Random();
         randomInt4 = random4.nextInt(3);
 
