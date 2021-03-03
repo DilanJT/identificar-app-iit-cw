@@ -32,6 +32,7 @@ public class AdvancedLevelActivity extends AppCompatActivity {
     Cars cars;
 
     int scoreValue = 0;
+    int currentIncorrectGuess = 4;
 
     int randomInt1;
     int randomInt2;
@@ -110,6 +111,7 @@ public class AdvancedLevelActivity extends AppCompatActivity {
                     !car2EditText.getText().toString().isEmpty() ||
                     !car3EditText.getText().toString().isEmpty()
             ) {
+
                 // checking if all the car names given are correct
                 if (compareCarNames(car1EditText, cars.getMakes()[randomInt1]) &&
                         compareCarNames(car2EditText, cars.getMakes()[randomInt2]) &&
@@ -146,10 +148,14 @@ public class AdvancedLevelActivity extends AppCompatActivity {
 
                     btnSubmit.setText(R.string.btn_next);
                 }else{
-                    // if all car names are not correct.
+                    // if some car names are not correct.
+
+                    currentIncorrectGuess --;
+                    correct.setText("left: " + Integer.toString(currentIncorrectGuess - 1));
+                    correct.setTextColor(getResources().getColor(R.color.identificarRed));
+
                     if(!compareCarNames(car1EditText, cars.getMakes()[randomInt1])){
                         car1EditText.setTextColor(getResources().getColor(R.color.identificarRed));
-
                     }else{
                         car1EditText.setTextColor(getResources().getColor(R.color.identificarGreen));
 
@@ -163,7 +169,6 @@ public class AdvancedLevelActivity extends AppCompatActivity {
                     }
                     if(!compareCarNames(car2EditText, cars.getMakes()[randomInt2])){
                         car2EditText.setTextColor(getResources().getColor(R.color.identificarRed));
-
                     }else{
                         car2EditText.setTextColor(getResources().getColor(R.color.identificarGreen));
                         if(car2EditText.isEnabled()){
@@ -174,7 +179,6 @@ public class AdvancedLevelActivity extends AppCompatActivity {
                     }
                     if(!compareCarNames(car3EditText, cars.getMakes()[randomInt3])){
                         car3EditText.setTextColor(getResources().getColor(R.color.identificarRed));
-
                     }else{
                         car3EditText.setTextColor(getResources().getColor(R.color.identificarGreen));
                         if(car3EditText.isEnabled()){
@@ -184,13 +188,28 @@ public class AdvancedLevelActivity extends AppCompatActivity {
                         car3EditText.setEnabled(false);
 
                     }
+
+                    if(currentIncorrectGuess == 0) {
+                        correct.setText(null);
+                        if(!compareCarNames(car1EditText, cars.getMakes()[randomInt1]))
+                            wrong1.setText(cars.getMakes()[randomInt1]);
+                        if(!compareCarNames(car2EditText, cars.getMakes()[randomInt2]))
+                            wrong2.setText(cars.getMakes()[randomInt2]);
+                        if(!compareCarNames(car3EditText, cars.getMakes()[randomInt3]))
+                            wrong3.setText(cars.getMakes()[randomInt3]);
+
+                        btnSubmit.setText(R.string.btn_next);
+                    }
                 }
 
             } else {
                 Toast.makeText(this, "Please fill all the text boxes", Toast.LENGTH_SHORT).show();
             }
 
+
+
         }else if(btnSubmit.getText().toString().equalsIgnoreCase("next")){
+
             car1EditText.setTextColor(getResources().getColor(R.color.identificarPrimary));
             car2EditText.setTextColor(getResources().getColor(R.color.identificarPrimary));
             car3EditText.setTextColor(getResources().getColor(R.color.identificarPrimary));
@@ -204,6 +223,8 @@ public class AdvancedLevelActivity extends AppCompatActivity {
             wrong1.setText(null);
             wrong2.setText(null);
             wrong3.setText(null);
+            //scoreValue = 0;
+            currentIncorrectGuess = 4;
 
             generateRandomResources();
             btnSubmit.setText(R.string.btn_submit);

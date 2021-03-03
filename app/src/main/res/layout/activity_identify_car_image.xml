@@ -41,13 +41,26 @@
         android:id="@+id/generatedTextForImageAct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="64dp"
         android:text="Mercedez"
         android:textSize="30sp"
+        android:textColor="@color/identificarPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageOption3"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="264dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generatedTextForImageAct"
+        app:srcCompat="@drawable/fiat" />
 
     <ImageView
         android:id="@+id/imageOption1"
@@ -55,7 +68,7 @@
         android:layout_height="170dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="64dp"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generatedTextForImageAct"
@@ -65,23 +78,11 @@
         android:id="@+id/imageOption2"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/generatedTextForImageAct"
-        app:srcCompat="@drawable/fiat" />
-
-    <ImageView
-        android:id="@+id/imageOption3"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginTop="220dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generatedTextForImageAct"
         app:srcCompat="@drawable/fiat" />
 
@@ -91,6 +92,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="NEXT"
+        android:backgroundTint="@color/identificarPrimary"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
