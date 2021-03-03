@@ -115,6 +115,22 @@ public class AdvancedLevelActivity extends AppCompatActivity {
                         compareCarNames(car2EditText, cars.getMakes()[randomInt2]) &&
                         compareCarNames(car3EditText, cars.getMakes()[randomInt3])) {
 
+                    // is enabled are checked to execute the score by one when user re-corrects without exceeding the chances
+                    if(car1EditText.isEnabled() || car2EditText.isEnabled() || car3EditText.isEnabled()) {
+                        if(car1EditText.isEnabled()){
+                            scoreValue ++;
+                            score.setText(Integer.toString(scoreValue));
+                        }
+                        if(car2EditText.isEnabled()){
+                            scoreValue ++;
+                            score.setText(Integer.toString(scoreValue));
+                        }
+                        if(car3EditText.isEnabled()){
+                            scoreValue ++;
+                            score.setText(Integer.toString(scoreValue));
+                        }
+
+                    }
                     correct.setText(R.string.correct);
                     correct.setTextColor(getResources().getColor(R.color.identificarGreen));
 
@@ -128,32 +144,45 @@ public class AdvancedLevelActivity extends AppCompatActivity {
                     car2EditText.setEnabled(false);
                     car3EditText.setEnabled(false);
 
-                    scoreValue += 3;
-                    score.setText(Integer.toString(scoreValue));
-
                     btnSubmit.setText(R.string.btn_next);
                 }else{
                     // if all car names are not correct.
                     if(!compareCarNames(car1EditText, cars.getMakes()[randomInt1])){
                         car1EditText.setTextColor(getResources().getColor(R.color.identificarRed));
-                        scoreValue ++;
+
                     }else{
                         car1EditText.setTextColor(getResources().getColor(R.color.identificarGreen));
+
+                        //score adds only when user typed the on the first check
+                        if(car1EditText.isEnabled()){
+                            scoreValue ++;
+                            score.setText(Integer.toString(scoreValue));
+                        }
                         car1EditText.setEnabled(false);
+
                     }
                     if(!compareCarNames(car2EditText, cars.getMakes()[randomInt2])){
                         car2EditText.setTextColor(getResources().getColor(R.color.identificarRed));
-                        scoreValue ++;
+
                     }else{
                         car2EditText.setTextColor(getResources().getColor(R.color.identificarGreen));
+                        if(car2EditText.isEnabled()){
+                            scoreValue ++;
+                            score.setText(Integer.toString(scoreValue));
+                        }
                         car2EditText.setEnabled(false);
                     }
                     if(!compareCarNames(car3EditText, cars.getMakes()[randomInt3])){
                         car3EditText.setTextColor(getResources().getColor(R.color.identificarRed));
-                        scoreValue ++;
+
                     }else{
                         car3EditText.setTextColor(getResources().getColor(R.color.identificarGreen));
+                        if(car3EditText.isEnabled()){
+                            scoreValue ++;
+                            score.setText(Integer.toString(scoreValue));
+                        }
                         car3EditText.setEnabled(false);
+
                     }
                 }
 
