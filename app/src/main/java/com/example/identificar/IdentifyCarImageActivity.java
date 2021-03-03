@@ -63,17 +63,15 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
 
         //setting a random number to not to be corresponding with other images generated
         //always generates three different random numbers
-        Random random1 = new Random();
-        randomInt1 = random1.nextInt(30);
-        Random random2 = new Random();
-        randomInt2 = random2.nextInt(30);
+        Random random = new Random();
+        randomInt1 = random.nextInt(30);
+        randomInt2 = random.nextInt(30);
         while (randomInt2 == randomInt1){
-            randomInt2 = random2.nextInt(30);
+            randomInt2 = random.nextInt(30);
         }
-        Random random3 = new Random();
-        randomInt3 = random3.nextInt(30);
+        randomInt3 = random.nextInt(30);
         while (randomInt3 == randomInt2 || randomInt3 == randomInt1){
-            randomInt3 = random3.nextInt(30);
+            randomInt3 = random.nextInt(30);
         }
 
         //setting the image view according to the random number generator
@@ -90,8 +88,8 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
 
         //out of the random numbers generated a random car make is taken to predict.
         //random car make out of the above carMakes string list is generated
-        Random random4 = new Random();
-        randomInt4 = random4.nextInt(3);
+
+        randomInt4 = random.nextInt(3);
 
         generatedCarModel.setText(carsMakes[randomInt4]);
     }
