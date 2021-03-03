@@ -198,6 +198,8 @@ public class AdvancedLevelActivity extends AppCompatActivity {
                         if(!compareCarNames(car3EditText, cars.getMakes()[randomInt3]))
                             wrong3.setText(cars.getMakes()[randomInt3]);
 
+                        correct.setTextColor(getResources().getColor(R.color.identificarRed));
+                        correct.setText(R.string.wrong);
                         btnSubmit.setText(R.string.btn_next);
                     }
                 }
