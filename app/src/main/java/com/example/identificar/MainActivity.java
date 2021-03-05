@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -16,6 +18,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnIdentifyImage;
     Button btnHints;
     Button btnAdvancedLevel;
+    Switch aSwitch;
+    Boolean switchChecked = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnAdvancedLevel = (Button) findViewById(R.id.btnAdvancedLevel);
         btnAdvancedLevel.setOnClickListener(this);
+
+        aSwitch = (Switch) findViewById(R.id.switchTimer);
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(aSwitch.isChecked()){
+                    switchChecked = true;
+                }else{
+                    switchChecked = false;
+                }
+            }
+        });
+
     }
 
     @Override
@@ -41,15 +59,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()){
             case R.id.btnIdentifyCarMake:
                 intent = new Intent(this, IdentifyCarModelActivity.class);
+                intent.putExtra("isOn", switchChecked);
                 break;
             case R.id.btnIdentifyCarImage:
                 intent = new Intent(this, IdentifyCarImageActivity.class);
+                intent.putExtra("isOn", switchChecked);
                 break;
             case R.id.btnHints:
                 intent = new Intent(this, HintsActivity.class);
+                intent.putExtra("isOn", switchChecked);
                 break;
             case R.id.btnAdvancedLevel:
                 intent = new Intent(this, AdvancedLevelActivity.class);
+                intent.putExtra("isOn", switchChecked);
                 break;
         }
 

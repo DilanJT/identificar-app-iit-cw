@@ -9,21 +9,6 @@
     tools:context=".IdentifyCarImageActivity">
 
     <TextView
-        android:id="@+id/correctGuessTextViewImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:outlineAmbientShadowColor="#FFFFFF"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/generatedTextForImageAct"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47" />
-
-    <TextView
         android:id="@+id/correctAnswerTextViewImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,16 +20,31 @@
         app:layout_constraintBottom_toTopOf="@+id/generatedTextForImageAct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47" />
+        app:layout_constraintVertical_bias="0.7" />
+
+    <TextView
+        android:id="@+id/correctGuessTextViewImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:outlineAmbientShadowColor="#FFFFFF"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/generatedTextForImageAct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
 
     <TextView
         android:id="@+id/generatedTextForImageAct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="120dp"
         android:text="Mercedez"
-        android:textSize="30sp"
         android:textColor="@color/identificarPrimary"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,11 +54,23 @@
         android:id="@+id/imageOption3"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_marginTop="264dp"
+        android:layout_marginTop="212dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generatedTextForImageAct"
+        app:srcCompat="@drawable/fiat" />
+
+    <ImageView
+        android:id="@+id/imageOption2"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generatedTextForImageAct"
         app:srcCompat="@drawable/fiat" />
 
@@ -68,21 +80,9 @@
         android:layout_height="170dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="12dp"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/generatedTextForImageAct"
-        app:srcCompat="@drawable/fiat" />
-
-    <ImageView
-        android:id="@+id/imageOption2"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generatedTextForImageAct"
         app:srcCompat="@drawable/fiat" />
 
@@ -90,12 +90,24 @@
         android:id="@+id/btnSubmitImageAct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="NEXT"
+        android:layout_marginTop="52dp"
         android:backgroundTint="@color/identificarPrimary"
+        android:text="NEXT"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageOption3" />
+
+    <TextView
+        android:id="@+id/textTimerModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="timer: 20"
+        android:textColor="@color/identificarPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

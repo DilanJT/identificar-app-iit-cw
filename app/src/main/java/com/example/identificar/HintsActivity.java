@@ -2,6 +2,7 @@ package com.example.identificar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,10 +33,18 @@ public class HintsActivity extends AppCompatActivity {
     TextView correctWrong;
     TextView correctAnswer;
 
+    boolean switchChecked;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hints);
+
+        //getting the values passed from the main activity
+        Intent intent = getIntent();
+        if(intent != null) {
+            switchChecked = intent.getBooleanExtra("isOn", false);
+        }
 
         /*
         Initialization of the views

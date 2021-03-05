@@ -2,6 +2,7 @@ package com.example.identificar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,10 +30,18 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
     int randomInt3;
     int randomInt4; //specifically get the make of 3 random generated cars randomly
 
+    boolean switchChecked;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identify_car_image);
+
+        //getting the values passed from the main activity
+        Intent intent = getIntent();
+        if(intent != null) {
+            switchChecked = intent.getBooleanExtra("isOn", false);
+        }
 
         /*
         Initializations
