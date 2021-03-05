@@ -15,6 +15,7 @@ public class CountDown {
     private int countDownInterval;
     private CountDownTimer countDownTimer;
     private boolean isFinished;
+    private boolean btnTextChangedToNext = false;
 
     private CountDown(){}
 
@@ -28,16 +29,15 @@ public class CountDown {
             countDownTimer = new CountDownTimer(milliSec, countDownInterval) {
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    isFinished = false;
                     timerTextView.setText("timer: " + millisUntilFinished / 1000);
                 }
 
                 @Override
                 public void onFinish() {
-                    timerTextView.setText("done");
+                    timerTextView.setText("TimesUp!");
                     Toast.makeText(context, "Times Up!", Toast.LENGTH_SHORT).show();
                     btnSubmit.setText(R.string.btn_next);
-                    isFinished = true;
+                    btnTextChangedToNext = true;
                 }
             };
         }
@@ -45,6 +45,7 @@ public class CountDown {
 
     public void startCount(){
         if(countDownTimer != null) {
+            isFinished = false;
             countDownTimer.start();
         }
     }
@@ -62,5 +63,9 @@ public class CountDown {
 
     public boolean isFinished(){
         return isFinished;
+    }
+
+    public boolean isBtnChangedToNext(){
+        return btnTextChangedToNext;
     }
 }

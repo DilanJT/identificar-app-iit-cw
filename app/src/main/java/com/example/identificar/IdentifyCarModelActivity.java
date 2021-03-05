@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,7 +32,7 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
     String itemSelected;
     int randomInt;
     Cars cars;
-    int milliSec = 20000;
+    int milliSec = 6000;
     int countDownInterval = 1000;
 
     TextView correctWrong;
@@ -39,6 +41,7 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
 
     boolean switchChecked;
     boolean isCancelled;
+    boolean btnToNextByCount; //changing text of the button in count down timer
 
 //    CountDownTimer countDownTimer;
     CountDown countTimer;
@@ -113,6 +116,29 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
         countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
         countTimer.startCount();
 
+
+        btnSubmit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Toast.makeText(IdentifyCarModelActivity.this, "after text changed", Toast.LENGTH_SHORT).show();
+                if(timerTextView.getText().toString().equalsIgnoreCase("TimesUp!")){
+                    if(btnSubmit.getText().toString().equalsIgnoreCase("next"))
+                        onIdentify();
+                }
+
+            }
+        });
+
     }
 
     @Override
@@ -132,16 +158,7 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
 
         if(btnText.equalsIgnoreCase("identify")){
             // logic when the user clicked on the identified button and its text os changed to next
-            if (itemSelected.equalsIgnoreCase(cars.getMakes()[randomInt])){
-                correctWrong.setText(R.string.correct);
-                correctWrong.setTextColor(getResources().getColor(R.color.identificarGreen));
-
-            }else{
-                correctWrong.setText(R.string.wrong);
-                correctWrong.setTextColor(getResources().getColor(R.color.identificarRed));
-                correctAnswer.setText(cars.getMakes()[randomInt]);
-                correctAnswer.setTextColor(getResources().getColor(R.color.identificarYellow));
-            }
+            onIdentify();
             btnSubmit.setText(R.string.btn_next);
         }else if(btnText.equalsIgnoreCase("next")){
             //resetting the game state
@@ -157,34 +174,32 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
             Random random = new Random();
             randomInt = random.nextInt(30);
             carPic.setImageResource(cars.getCarIds()[randomInt]);
+
+            countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
+            countTimer.startCount();
+
+
             btnSubmit.setText(R.string.btn_identify);
 
 //            countDown(); //create a new instance
 //            if(countDownTimer != null) {
 //                countDownTimer.start();
 //            }// starting the counter from the beginning
-            countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
-            countTimer.startCount();
+
         }
 
     }
 
+    public void onIdentify(){
+        if (itemSelected.equalsIgnoreCase(cars.getMakes()[randomInt])){
+            correctWrong.setText(R.string.correct);
+            correctWrong.setTextColor(getResources().getColor(R.color.identificarGreen));
 
-//    public void countDown(){
-//        if(switchChecked){
-//            countDownTimer = new CountDownTimer(milliSec, 1000) {
-//                @Override
-//                public void onTick(long millisUntilFinished) {
-//                    timerTextView.setText("timer: " + millisUntilFinished / 1000);
-//                }
-//
-//                @Override
-//                public void onFinish() {
-//                    timerTextView.setText("done");
-//                    Toast.makeText(IdentifyCarModelActivity.this, "Times up", Toast.LENGTH_SHORT).show();
-//                    btnSubmit.setText(R.string.btn_next);
-//                }
-//            };
-//        }
-//    }
+        }else{
+            correctWrong.setText(R.string.wrong);
+            correctWrong.setTextColor(getResources().getColor(R.color.identificarRed));
+            correctAnswer.setText(cars.getMakes()[randomInt]);
+            correctAnswer.setTextColor(getResources().getColor(R.color.identificarYellow));
+        }
+    }
 }
