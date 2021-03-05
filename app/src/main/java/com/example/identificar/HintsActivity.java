@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.identificar.models.Cars;
+import com.example.identificar.models.CountDown;
 
 import java.util.Random;
 
@@ -32,8 +33,13 @@ public class HintsActivity extends AppCompatActivity {
 
     TextView correctWrong;
     TextView correctAnswer;
+    TextView timerTextView;
 
     boolean switchChecked;
+    CountDown countTimer;
+
+    int milliSec = 20000;
+    int countDownInterval = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +62,11 @@ public class HintsActivity extends AppCompatActivity {
         correctAnswer = (TextView) findViewById(R.id.resultTextViewHints);
         dashedText = (TextView) findViewById(R.id.correctGuessTextView);
         guessText = (EditText) findViewById(R.id.editTextGuessHints);
+        timerTextView = (TextView) findViewById(R.id.textTimerHints);
 
         cars = Cars.getInstance();
+
+        countTimer = new CountDown(milliSec, countDownInterval);
 
         /*
         SETUPS
@@ -70,6 +79,9 @@ public class HintsActivity extends AppCompatActivity {
         generatedCarMake = cars.getMakes()[randomInt];
         dashedText.setText(null); //setting the dashes text view null at the first place
         setDashedText(); //setting the dashes according to the car make text
+
+        countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
+        countTimer.startCount();
     }
 
     public void setDashedText(){
@@ -139,6 +151,9 @@ public class HintsActivity extends AppCompatActivity {
 
             //System.out.println("No incorrect guess chances left.");
         }else if(btnSubmit.getText().toString().equalsIgnoreCase("Next")){
+
+            countTimer.stopCount();
+
             currentIncorrectGuess = 4;
             correctAnswer.setText(null);
             correctWrong.setText(null);
@@ -149,6 +164,9 @@ public class HintsActivity extends AppCompatActivity {
             generatedCarMake = cars.getMakes()[randomInt];
             setDashedText();
             btnSubmit.setText(R.string.btn_submit);
+
+            countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
+            countTimer.startCount();
         }
 
         //TODO: fix the submit button clicked in the null state

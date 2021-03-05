@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.identificar.models.Cars;
+import com.example.identificar.models.CountDown;
 
 
 import java.util.Random;
@@ -40,6 +41,12 @@ public class AdvancedLevelActivity extends AppCompatActivity {
     int randomInt3;
 
     boolean switchChecked;
+
+    CountDown countTimer;
+    TextView timerTextView;
+
+    int milliSec = 20000;
+    int countDownInterval = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +80,11 @@ public class AdvancedLevelActivity extends AppCompatActivity {
         btnSubmit = (Button) findViewById(R.id.btnSubmitAdvanced);
         score = (TextView) findViewById(R.id.scoreAdvaced);
 
+        timerTextView = (TextView) findViewById(R.id.textTimerAdvance);
+
         cars = Cars.getInstance();
+
+        countTimer = new CountDown(milliSec, countDownInterval);
 
         /*
         Setups
@@ -85,6 +96,9 @@ public class AdvancedLevelActivity extends AppCompatActivity {
         wrong3.setText(null);
         correct.setText(null);
         score.setText("0");
+
+        countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
+        countTimer.startCount();
     }
 
     public void generateRandomResources(){
@@ -221,6 +235,8 @@ public class AdvancedLevelActivity extends AppCompatActivity {
 
         }else if(btnSubmit.getText().toString().equalsIgnoreCase("next")){
 
+            countTimer.stopCount();
+
             car1EditText.setTextColor(getResources().getColor(R.color.identificarPrimary));
             car2EditText.setTextColor(getResources().getColor(R.color.identificarPrimary));
             car3EditText.setTextColor(getResources().getColor(R.color.identificarPrimary));
@@ -239,6 +255,9 @@ public class AdvancedLevelActivity extends AppCompatActivity {
 
             generateRandomResources();
             btnSubmit.setText(R.string.btn_submit);
+
+            countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
+            countTimer.startCount();
         }
 
         // TODO: ignore the spaces when getting user inputs

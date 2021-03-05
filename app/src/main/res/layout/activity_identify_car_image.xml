@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageOption3" />
 
     <TextView
-        android:id="@+id/textTimerModel"
+        android:id="@+id/textTimerImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"

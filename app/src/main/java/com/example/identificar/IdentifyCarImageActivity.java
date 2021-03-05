@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.identificar.models.Cars;
+import com.example.identificar.models.CountDown;
 
 import org.w3c.dom.Text;
 
@@ -31,6 +32,10 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
     int randomInt4; //specifically get the make of 3 random generated cars randomly
 
     boolean switchChecked;
+    CountDown countTimer;
+    TextView timerTextView;
+    int milliSec = 20000;
+    int countDownInterval = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +58,11 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
         generatedCarModel = (TextView) findViewById(R.id.generatedTextForImageAct);
         btnSubmit = (Button) findViewById(R.id.btnSubmitImageAct);
         correctWrong = (TextView) findViewById(R.id.correctGuessTextViewImage);
+        timerTextView = (TextView) findViewById(R.id.textTimerImage);
 
         cars = Cars.getInstance();
+
+        countTimer = new CountDown(milliSec, countDownInterval);
 
         /*
         Setups
@@ -66,6 +74,9 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
 
         //setting up the random resources
         generateRandomResources();
+
+        countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
+        countTimer.startCount();
     }
 
     public void generateRandomResources(){
@@ -119,7 +130,13 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
                 }
                 break;
             case R.id.btnSubmitImageAct:
+                countTimer.stopCount();
+
                 generateRandomResources();
+
+                countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
+                countTimer.startCount();
+
                 correctWrong.setText(null);
                 break;
         }
