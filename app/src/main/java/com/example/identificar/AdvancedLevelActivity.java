@@ -231,6 +231,8 @@ public class AdvancedLevelActivity extends AppCompatActivity {
             generateRandomResources();
             btnSubmit.setText(R.string.btn_submit);
         }
+
+        // TODO: ignore the spaces when getting user inputs
     }
 
     public boolean compareCarNames(EditText e1, String carName){

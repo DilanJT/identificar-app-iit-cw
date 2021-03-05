@@ -13,19 +13,19 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
-        android:background="#00FFFF"
+        android:padding="15dp"
         android:text="Identify the car make"
         android:textColor="#000000"
         android:textSize="19sp"
         android:textStyle="bold"
         app:backgroundTint="#00FFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageFilterView2" />
+        app:layout_constraintTop_toBottomOf="@+id/switch2" />
 
     <Button
         android:id="@+id/btnHints"
@@ -36,7 +36,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
-        android:background="#00FFFF"
+        android:padding="15dp"
         android:text="Hints"
         android:textColor="#000000"
         android:textSize="19sp"
@@ -48,13 +48,13 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView2"
-        android:layout_width="163dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="88dp"
+        android:layout_width="155dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="8dp"
         android:tint="@color/identificarPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/ic_car" />
 
     <Button
@@ -66,7 +66,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
-        android:background="#00FFFF"
+        android:padding="15dp"
         android:text="Identify the car image"
         android:textColor="#000000"
         android:textSize="19sp"
@@ -85,7 +85,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
-        android:background="#00FFFF"
+        android:padding="15dp"
         android:text="advanced level"
         android:textColor="#000000"
         android:textSize="19sp"
@@ -94,5 +94,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnIdentifyCarImage" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="IDENTIFICAR"
+        android:textColor="@color/identificarPrimary"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fallbackLineSpacing="false"
+        android:lineSpacingExtra="8sp"
+        android:text="TIMER - "
+        android:textColor="@color/identificarPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageFilterView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
