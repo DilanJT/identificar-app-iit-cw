@@ -261,6 +261,7 @@ public class AdvancedLevelActivity extends AppCompatActivity {
         }
 
         // TODO: ignore the spaces when getting user inputs
+        //TODO: implement the count down for all the attempts
     }
 
     public boolean compareCarNames(EditText e1, String carName){

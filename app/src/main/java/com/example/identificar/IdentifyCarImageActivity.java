@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -34,7 +36,7 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
     boolean switchChecked;
     CountDown countTimer;
     TextView timerTextView;
-    int milliSec = 20000;
+    int milliSec = 9000;
     int countDownInterval = 1000;
 
     @Override
@@ -77,6 +79,27 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
 
         countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
         countTimer.startCount();
+
+        timerTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(timerTextView.getText().toString().equalsIgnoreCase("TimesUp!")){
+                    correctWrong.setText(R.string.wrong);
+                    correctWrong.setTextColor(getResources().getColor(R.color.identificarRed));
+                }
+            }
+        });
+
     }
 
     public void generateRandomResources(){
@@ -138,7 +161,15 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
                 countTimer.startCount();
 
                 correctWrong.setText(null);
+
+                countTimer.stopCount();
+                countTimer.initializeCountDown(switchChecked,timerTextView,this);
+                countTimer.startCount();
                 break;
         }
+    }
+
+    public void onIdentify(){
+
     }
 }

@@ -82,6 +82,7 @@ public class HintsActivity extends AppCompatActivity {
 
         countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
         countTimer.startCount();
+
     }
 
     public void setDashedText(){
@@ -171,5 +172,6 @@ public class HintsActivity extends AppCompatActivity {
 
         //TODO: fix the submit button clicked in the null state
         //TODO: fix the name with spaces
+        //TODO: implement the count down for all the attempts
       }
 }
