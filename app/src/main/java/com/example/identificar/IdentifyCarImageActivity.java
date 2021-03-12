@@ -172,4 +172,10 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
     public void onIdentify(){
 
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        countTimer.stopCount();
+    }
 }

@@ -267,4 +267,10 @@ public class AdvancedLevelActivity extends AppCompatActivity {
     public boolean compareCarNames(EditText e1, String carName){
         return e1.getText().toString().equalsIgnoreCase(carName);
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        countTimer.stopCount();
+    }
 }

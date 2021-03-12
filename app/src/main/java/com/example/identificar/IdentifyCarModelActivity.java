@@ -202,4 +202,11 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
             correctAnswer.setTextColor(getResources().getColor(R.color.identificarYellow));
         }
     }
+
+    // On stop functionality to force stop if any ongoing counter is working
+    @Override
+    protected void onStop() {
+        super.onStop();
+        countTimer.stopCount();
+    }
 }
