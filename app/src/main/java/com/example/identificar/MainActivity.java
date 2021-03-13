@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //intializing buttons and setting on click listeners
+
         btnIdentifyModel = (Button) findViewById(R.id.btnIdentifyCarMake);
         btnIdentifyModel.setOnClickListener(this);
 
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnAdvancedLevel.setOnClickListener(this);
 
         aSwitch = (Switch) findViewById(R.id.switchTimer);
+
+        //listener to the switch for the timer.
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -56,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         Intent intent = null;
+        //setting the the intent by passing the switch value.
+        //according to the value activities' timer can decide weather to operate or not.
         switch(v.getId()){
             case R.id.btnIdentifyCarMake:
                 intent = new Intent(this, IdentifyCarModelActivity.class);

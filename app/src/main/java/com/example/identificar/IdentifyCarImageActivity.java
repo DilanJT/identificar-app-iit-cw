@@ -36,7 +36,7 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
     boolean switchChecked;
     CountDown countTimer;
     TextView timerTextView;
-    int milliSec = 20000;
+    int milliSec = 20000; //setting the count down seconds and 20secs
     int countDownInterval = 1000;
 
     @Override

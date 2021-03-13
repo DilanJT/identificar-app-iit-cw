@@ -162,14 +162,8 @@ public class HintsActivity extends AppCompatActivity {
         //TODO: implement the count down for all the attempts
     }
 
+    // submit functionality when the button text is submit
     public void submitFunctionality(String trimmedString, String gTextChar, char[] dashesChar, char[] generatedCarMakedChars, boolean present){
-
-
-
-        String[] array = generatedCarMake.split("");
-        for(int i = 0; i <  array.length; i ++) {
-            System.out.println(array[i]);
-        }
 
         if(!guessText.getText().toString().isEmpty()) {
             Log.i("Check :", Character.toString(gTextChar.charAt(0)));
@@ -214,6 +208,7 @@ public class HintsActivity extends AppCompatActivity {
         }
     }
 
+    // button functionality whent he button text is next
     public void nextFunctionality(){
         countTimer.stopCount();
 

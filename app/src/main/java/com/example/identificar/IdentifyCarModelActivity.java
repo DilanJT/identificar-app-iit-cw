@@ -32,18 +32,16 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
     String itemSelected;
     int randomInt;
     Cars cars;
-    int milliSec = 20000;
+
+    int milliSec = 20000; //setting the milliseconds for the timer.
     int countDownInterval = 1000;
 
     TextView correctWrong;
     TextView correctAnswer;
-    TextView timerTextView;
+    TextView timerTextView; // textview to display the count down of the timer.
 
     boolean switchChecked;
-    boolean isCancelled;
-    boolean btnToNextByCount; //changing text of the button in count down timer
 
-//    CountDownTimer countDownTimer;
     CountDown countTimer;
 
     @Override
@@ -101,7 +99,8 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
         countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
         countTimer.startCount();
 
-
+        // Here when the timer functionality enabled it listens to a change in text of the textView
+        // When the times up the afterChanged method is called
         btnSubmit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -167,6 +166,7 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
 
     }
 
+    // functionality used when the user press the button and when its button text equals Identify
     public void onIdentify(){
         if (itemSelected.equalsIgnoreCase(cars.getMakes()[randomInt])){
             correctWrong.setText(R.string.correct);

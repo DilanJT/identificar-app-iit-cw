@@ -27,6 +27,8 @@ public class AdvancedLevelActivity extends AppCompatActivity {
     EditText car1EditText;
     EditText car2EditText;
     EditText car3EditText;
+
+    //below the 3 textviews are to display the correct answer in yellow below the EditText
     TextView wrong1;
     TextView wrong2;
     TextView wrong3;
@@ -38,16 +40,16 @@ public class AdvancedLevelActivity extends AppCompatActivity {
     int scoreValue = 0;
     int currentIncorrectGuess = 4;
 
-    int randomInt1;
-    int randomInt2;
-    int randomInt3;
+    int randomInt1; //random int to generate first random car
+    int randomInt2; //random int to generate the second random car
+    int randomInt3; //random int to generate the third random car
 
     boolean switchChecked;
 
     CountDown countTimer;
     TextView timerTextView;
 
-    int milliSec = 20000;
+    int milliSec = 20000; // count down timer is set to 20 seconds
     int countDownInterval = 1000;
 
     @Override
@@ -166,8 +168,6 @@ public class AdvancedLevelActivity extends AppCompatActivity {
             nextFunctionality();
         }
 
-        // TODO: ignore the spaces when getting user inputs
-        //TODO: implement the count down for all the attempts
     }
 
     public void submitFunctionality(){
