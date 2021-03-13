@@ -114,12 +114,11 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
 
             @Override
             public void afterTextChanged(Editable s) {
-                Toast.makeText(IdentifyCarModelActivity.this, "after text changed", Toast.LENGTH_SHORT).show();
-                if(timerTextView.getText().toString().equalsIgnoreCase("TimesUp!")){
+
+                if(timerTextView.getText().toString().equalsIgnoreCase("timer: 0")){
                     if(btnSubmit.getText().toString().equalsIgnoreCase("next"))
                         onIdentify();
                 }
-
             }
         });
 
@@ -151,8 +150,14 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
 
             correctWrong.setText(null);
             correctAnswer.setText(null);
+
+            int beforeRandomInt = randomInt;
             Random random = new Random();
             randomInt = random.nextInt(30);
+            while(randomInt == beforeRandomInt){
+                randomInt = random.nextInt(30);
+            }
+
             carPic.setImageResource(cars.getCarIds()[randomInt]);
 
             countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);

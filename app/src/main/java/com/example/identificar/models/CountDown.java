@@ -32,11 +32,15 @@ public class CountDown {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     timerTextView.setText("timer: " + millisUntilFinished / 1000);
+                    if((millisUntilFinished / 1000) == 0){
+                        onFinish();
+                    }
+
                 }
 
                 @Override
                 public void onFinish() {
-                    timerTextView.setText("TimesUp!");
+//                    timerTextView.setText("0");
                     Toast.makeText(context, "Times Up!", Toast.LENGTH_SHORT).show();
                     btnSubmit.setText(R.string.btn_next);
                     btnTextChangedToNext = true;
@@ -53,11 +57,15 @@ public class CountDown {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     timerTextView.setText("timer: " + millisUntilFinished / 1000);
+                    if((millisUntilFinished / 1000) == 0){
+                        onFinish();
+                    }
+
                 }
 
                 @Override
                 public void onFinish() {
-                    timerTextView.setText("TimesUp!");
+//                    timerTextView.setText("0");
                     Toast.makeText(context, "Times Up!", Toast.LENGTH_SHORT).show();
                 }
             };

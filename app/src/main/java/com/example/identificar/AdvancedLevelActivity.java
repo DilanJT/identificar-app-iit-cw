@@ -117,7 +117,7 @@ public class AdvancedLevelActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(timerTextView.getText().toString().equalsIgnoreCase("TimesUp!")){
+                if(timerTextView.getText().toString().equalsIgnoreCase("timer: 0")){
                     if(btnSubmit.getText().toString().equalsIgnoreCase("Submit")) {
                         submitFunctionality();
                         countTimer.stopCount();

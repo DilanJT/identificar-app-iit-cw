@@ -42,8 +42,8 @@ public class HintsActivity extends AppCompatActivity {
     boolean switchChecked;
     CountDown countTimer;
 
-    int milliSec = 5000;
-    int countDownInterval = 2000;
+    int milliSec = 20000;
+    int countDownInterval = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +100,7 @@ public class HintsActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(timerTextView.getText().toString().equalsIgnoreCase("TimesUp!")){
+                if(timerTextView.getText().toString().equalsIgnoreCase("timer: 0")){
                     //checking the status of the attempts left
 
                     if(btnSubmit.getText().toString().equalsIgnoreCase("Submit")){
@@ -215,8 +215,13 @@ public class HintsActivity extends AppCompatActivity {
         currentIncorrectGuess = 4;
         correctAnswer.setText(null);
         correctWrong.setText(null);
+
+        int beforeRandomInt = randomInt;
         Random random = new Random();
         randomInt = random.nextInt(30);
+        while(randomInt == beforeRandomInt){
+            randomInt = random.nextInt(30);
+        }
 
         carPic.setImageResource(cars.getCarIds()[randomInt]);
         generatedCarMake = cars.getMakes()[randomInt];

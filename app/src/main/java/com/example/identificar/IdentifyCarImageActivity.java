@@ -93,9 +93,15 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(timerTextView.getText().toString().equalsIgnoreCase("TimesUp!")){
-                    correctWrong.setText(R.string.wrong);
-                    correctWrong.setTextColor(getResources().getColor(R.color.identificarRed));
+                if(timerTextView.getText().toString().equalsIgnoreCase("timer: 0")){
+                    // TODO: add the functionality, when user did not select any, flash the correct image
+                    if(generatedCarModel.getText().toString().equalsIgnoreCase(imageView1.getTag().toString())){
+                        imageView1.setColorFilter(getResources().getColor(R.color.identificarTransparentGreen));
+                    }else if(generatedCarModel.getText().toString().equalsIgnoreCase(imageView2.getTag().toString())){
+                        imageView2.setColorFilter(getResources().getColor(R.color.identificarTransparentGreen));
+                    }else if(generatedCarModel.getText().toString().equalsIgnoreCase(imageView3.getTag().toString())){
+                        imageView3.setColorFilter(getResources().getColor(R.color.identificarTransparentGreen));
+                    }
                 }
             }
         });
@@ -161,6 +167,9 @@ public class IdentifyCarImageActivity extends AppCompatActivity implements View.
                 countTimer.startCount();
 
                 correctWrong.setText(null);
+                imageView1.setColorFilter(null);
+                imageView2.setColorFilter(null);
+                imageView3.setColorFilter(null);
 
                 countTimer.stopCount();
                 countTimer.initializeCountDown(switchChecked,timerTextView,this);
