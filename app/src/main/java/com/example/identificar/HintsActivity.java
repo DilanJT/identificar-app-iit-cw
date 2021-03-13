@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.example.identificar.models.Cars;
 import com.example.identificar.models.CountDown;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class HintsActivity extends AppCompatActivity {
@@ -41,7 +43,7 @@ public class HintsActivity extends AppCompatActivity {
     CountDown countTimer;
 
     int milliSec = 5000;
-    int countDownInterval = 1000;
+    int countDownInterval = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,66 +149,10 @@ public class HintsActivity extends AppCompatActivity {
 
         if(btnSubmit.getText().toString().equalsIgnoreCase("Submit")) {
 
-//                Log.i("Check :", Character.toString(gTextChar.charAt(0)));
-//                for (int i = 0; i < trimmedString.length(); i++) {
-//                    if (gTextChar.equalsIgnoreCase(Character.toString(generatedCarMakedChars[i]))) {
-//                        //have checked weather we have correctly guessed it earlier
-//                        if (!Character.toString(dashesChar[i]).equalsIgnoreCase(gTextChar)) {
-//                            dashesChar[i] = gTextChar.charAt(0); // here 0 is because it is the only string guess
-//                        }
-//                        present = true;
-//                    }
-//                }
-//
-//            if(!present){
-//                currentIncorrectGuess --;
-//                correctAnswer.setTextColor(getResources().getColor(R.color.identificarRed));
-//                correctAnswer.setText((currentIncorrectGuess - 1) + " wrong attepts left");
-//            }
-//            if(currentIncorrectGuess == 0) {
-//                guessText.setText(null);
-//                correctWrong.setText(R.string.wrong);
-//                correctWrong.setTextColor(getResources().getColor(R.color.identificarRed));
-//                correctAnswer.setText(generatedCarMake);
-//                correctAnswer.setTextColor(getResources().getColor(R.color.identificarYellow));
-//                btnSubmit.setText(R.string.btn_next);
-//                return;
-//            }
-//
-//
-//            String stringDashes = new String(dashesChar);
-//            dashedText.setText(stringDashes);
-//            guessText.setText(null);
-//
-//            //checks if all the values in dashed text corresponds with the generated car make text
-//            if(trimmedString.equalsIgnoreCase(dashedText.getText().toString())) {
-//                found = true;
-//                correctWrong.setText(R.string.correct);
-//                correctWrong.setTextColor(getResources().getColor(R.color.identificarGreen));
-//                correctAnswer.setText(null);
-//                btnSubmit.setText(R.string.btn_next);
-//            }
-
             submitFunctionality( trimmedString,  gTextChar,  dashesChar, generatedCarMakedChars, present);
 
             //System.out.println("No incorrect guess chances left.");
         }else if(btnSubmit.getText().toString().equalsIgnoreCase("Next")){
-
-//            countTimer.stopCount();
-//
-//            currentIncorrectGuess = 4;
-//            correctAnswer.setText(null);
-//            correctWrong.setText(null);
-//            Random random = new Random();
-//            randomInt = random.nextInt(30);
-//
-//            carPic.setImageResource(cars.getCarIds()[randomInt]);
-//            generatedCarMake = cars.getMakes()[randomInt];
-//            setDashedText();
-//            btnSubmit.setText(R.string.btn_submit);
-//
-//            countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
-//            countTimer.startCount();
 
             nextFunctionality();
         }
@@ -217,6 +163,13 @@ public class HintsActivity extends AppCompatActivity {
     }
 
     public void submitFunctionality(String trimmedString, String gTextChar, char[] dashesChar, char[] generatedCarMakedChars, boolean present){
+
+
+
+        String[] array = generatedCarMake.split("");
+        for(int i = 0; i <  array.length; i ++) {
+            System.out.println(array[i]);
+        }
 
         if(!guessText.getText().toString().isEmpty()) {
             Log.i("Check :", Character.toString(gTextChar.charAt(0)));

@@ -11,11 +11,11 @@
         android:id="@+id/imgModelActivity"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/identificar_imageview"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTimerModel"
         app:srcCompat="@drawable/fiat" />
@@ -24,20 +24,24 @@
         android:id="@+id/spinner"
         android:layout_width="200dp"
         android:layout_height="63dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
         android:background="@drawable/identificar_spinner"
         android:outlineAmbientShadowColor="@color/identificarPrimary"
         android:popupBackground="@color/idenSemiBlue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgModelActivity" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imgModelActivity"
+        app:layout_constraintTop_toBottomOf="@+id/textTimerModel" />
 
     <Button
         android:id="@+id/btnModelActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
         android:background="@drawable/identificar_button"
         android:backgroundTint="@color/identificarPrimary"
         android:onClick="onIdentifyClicked"
@@ -45,8 +49,6 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <TextView

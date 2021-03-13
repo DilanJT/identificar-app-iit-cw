@@ -11,5 +11,6 @@
     <color name="identificarRed">#ff073a</color>
     <color name="identificarYellow">#F2FA22</color>
     <color name="identificarPrimary">#00FFFF</color>
-    <color name="identificarBackgroundBlue">#081B33</color>
+    <color name="identificarBackgroundBlue">#051120</color>
+    <color name="idenSemiBlue">#0A2343</color>
 </resources>

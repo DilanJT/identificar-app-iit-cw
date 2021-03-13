@@ -47,7 +47,7 @@ public class AdvancedLevelActivity extends AppCompatActivity {
     CountDown countTimer;
     TextView timerTextView;
 
-    int milliSec = 10000;
+    int milliSec = 20000;
     int countDownInterval = 1000;
 
     @Override

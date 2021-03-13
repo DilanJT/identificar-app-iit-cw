@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/spinner_view_background">
+            <stroke
+                android:color="@color/identificarPrimary"
+                android:width="1dp" />
+            <padding
+                android:bottom="1dp"
+                android:left="10dp"
+                android:right="30dp"
+                android:top="1dp" />
+            <corners android:radius="10dp"/>
+
+        </shape>
+    </item>
+    <item>
+
+        <bitmap
+            android:gravity="right"
+            android:tint="@color/identificarPrimary"
+            android:src="@android:drawable/arrow_down_float">
+
+        </bitmap>
+    </item>
+</layer-list>

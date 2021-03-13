@@ -32,7 +32,7 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
     String itemSelected;
     int randomInt;
     Cars cars;
-    int milliSec = 6000;
+    int milliSec = 20000;
     int countDownInterval = 1000;
 
     TextView correctWrong;
@@ -63,18 +63,7 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
         */
 
         dropdown = (Spinner) findViewById(R.id.spinner);
-//        carStringList = new String[]{"Acura", "Alpha Romeo", "Audi", "Bentley", "BMW", "Buick",
-//        "Cadilac", "Chevrolet", "Dodge", "Fiat", "Genesis", "GMC", "Hundai", "Jaguar", "Jeep",
-//        "Land Rover", "Lexus", "Mercedes", "Mercury", "Mini", "Mitsubishi", "Nissan", "Pontiac",
-//        "Porche", "Rolls Royce", "Subaru", "Suzuki", "Tesla", "Toyota", "Volvo"};
-//
-//        carIds = new int[]{R.drawable.acura, R.drawable.alpha_romeo, R.drawable.audi, R.drawable.bentley,
-//        R.drawable.bmw, R.drawable.buick, R.drawable.cadillac, R.drawable.chevrolet, R.drawable.dodge,
-//        R.drawable.fiat, R.drawable.genesis, R.drawable.gmc, R.drawable.hundai, R.drawable.jaguar,
-//        R.drawable.jeep, R.drawable.land_rover, R.drawable.lexus, R.drawable.mercedes, R.drawable.mercury,
-//        R.drawable.mini, R.drawable.mitsubishi, R.drawable.nissan, R.drawable.pontiac, R.drawable.porche,
-//        R.drawable.rolls_royce, R.drawable.subaru, R.drawable.suzuki, R.drawable.tesla, R.drawable.toyota,
-//        R.drawable.volvo};
+
 
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this,
                 R.array.cars_array, android.R.layout.simple_spinner_item);
@@ -108,11 +97,7 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
 //        carPic.setImageResource(carIds[randomInt]);
         carPic.setImageResource(cars.getCarIds()[randomInt]);
 
-//        countDown(); // executing the timer if the timer switch is on
-//        countDown();
-//        if(countDownTimer != null) {
-//            countDownTimer.start();
-//        }
+
         countTimer.initializeCountDown(switchChecked, timerTextView, btnSubmit, this);
         countTimer.startCount();
 
@@ -163,10 +148,6 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
         }else if(btnText.equalsIgnoreCase("next")){
             //resetting the game state
 
-//            if(countDownTimer != null) {
-//                countDownTimer.cancel(); //cancelling the count down
-//                countDownTimer = null; //setting the count down instance as null
-//            } // cancelling the current state of the counter before going to a new one
             countTimer.stopCount();
 
             correctWrong.setText(null);
@@ -181,10 +162,6 @@ public class IdentifyCarModelActivity extends AppCompatActivity implements Adapt
 
             btnSubmit.setText(R.string.btn_identify);
 
-//            countDown(); //create a new instance
-//            if(countDownTimer != null) {
-//                countDownTimer.start();
-//            }// starting the counter from the beginning
 
         }
 

@@ -11,6 +11,8 @@ import com.example.identificar.R;
 
 public class CountDown {
 
+    //this class will helpful in implementing the count down timer functionality to all the game levels (activities)
+
     private int milliSec;
     private int countDownInterval;
     private CountDownTimer countDownTimer;
